@@ -4,12 +4,14 @@ author: Noms des membres de votre équipe
 output: github_document
 ---
 
-## Résumé
+```{r}
+library(tidyverse)
+```
+##1. Introduction
 
-Rédigez votre projet et vos conclusions ici.
-Considérez cela comme le texte de votre présentation.
-La durée doit être d'environ 5 minutes lorsqu'elle est lue à haute voix.
-Bien que le rythme varie, un discours de 5 minutes compte environ 750 mots.
+**Question de recherche** : Quels sont les principaux facteurs influençant la production d'œufs et les caractéristiques physiques des poules domestiques, et comment varient-ils en fonction des races, des conditions d’élevage et des pratiques alimentaires ?
+
+**Jeu de données** : Le dataset provient d’un regroupement de données sur les poules domestiques et leurs caractéristiques biologiques et environnementales. Il comprend des informations détaillées sur des facteurs comme la race, l’alimentation, l’exposition au soleil, et d’autres caractéristiques physiques. Les données ont été collectées et structurées pour permettre une analyse des éléments influençant la production d'œufs et les caractéristiques physiques des poules.
 
 
 Vous pouvez également charger vos données ici et présenter tous les résultats d'analyse / tracés, mais je vous invite fortement à limiter cela au minimum (peut-être uniquement le graphique le plus important, si vous en avez un, vous pouvez choisir).
