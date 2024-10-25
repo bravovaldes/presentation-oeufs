@@ -1,12 +1,41 @@
-# Les données
 
-Placez le(s) fichier(s) de données dans ce dossier.
 
-Ensuite, incluez un dictionnaire des données (variables et leurs descriptions) pour vos fichiers de données en utilisant le format suivant.
+## GallusGallusDomesticus.csv'
 
-## nom du fichier de données
+**GallusID** : Identifiant unique pour chaque poule.
 
-- `variable1` : Description de la variable 1
-- `variable2` : Description de la variable 2
-- `variable3` : Description de la variable 3
-- ...
+**GallusBreed** : Race de la poule domestique (ex. Marans, Leghorn).
+
+**Day** : Jour d’observation de la poule.
+
+**Age** : Âge de la poule en jours.
+
+**GallusWeight** : Poids de la poule (en grammes).
+
+**GallusEggColor** : Couleur de l'œuf pondu (ex. Blanc, Brun).
+
+**GallusEggWeight** : Poids de l'œuf (en grammes).
+
+**AmountOfFeed** : Quantité de nourriture donnée par jour (en grammes).
+
+**EggsPerDay** : Nombre d'œufs pondus par jour.
+
+**GallusCombType** : Type de crête de la poule (ex. Simple, Rose).
+
+**SunLightExposure** : Exposition quotidienne au soleil (en heures).
+
+**GallusClass** : Classification de la poule (ex. Continentale).
+
+**GallusLegShanksColor** : Couleur des pattes de la poule.
+
+**GallusBeakColor** : Couleur du bec de la poule.
+
+**GallusEarLobesColor** : Couleur des lobes des oreilles (quand disponible).
+
+**GallusPlumage** : Couleur du plumage de la poule.
+
+## Dimensions du Dataset
+
+Nombre d'observations : 1 000
+
+Nombre de variables : 16
