@@ -1,6 +1,6 @@
 Proposition de projet
 ================
-Noms des membres de l’équipe
+groupe 8
 
 ``` r
 library(broom)
