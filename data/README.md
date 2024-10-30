@@ -1,10 +1,19 @@
+## Les Donnees 
 
+La table représente des caractéristiques biologiques et environnementales des 
+poules domestiques, incluant la production d'œufs par jour, le poids des poules, 
+la race, la quantité de nourriture donnée, l'exposition au soleil, et diverses
+caractéristiques physiques telles que la couleur des œufs, des pattes, du bec et 
+des lobes d'oreilles.
 
-## GallusGallusDomesticus.csv'
+Nom du fichier de données
+Les données sont dans le fichier **GallusGallusDomesticus.csv**.
+
+## GallusGallusDomesticus.csv
 
 **GallusID** : Identifiant unique pour chaque poule.
 
-**GallusBreed** : Race de la poule domestique (ex. Marans, Leghorn).
+**GallusBreed** : Race de la poule domestique (ex. Marans,).
 
 **Day** : Jour d’observation de la poule.
 
