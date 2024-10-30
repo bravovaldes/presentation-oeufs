@@ -1,6 +1,6 @@
 ---
 title: "Proposition de projet"
-author: "Noms des membres de l'équipe"
+author: "groupe 8"
 output: github_document
 ---
 
