@@ -41,6 +41,7 @@ voici un apercu:
 # Section 3 -Plan d’analyse des données
 
 **1. Variables de résultat (Y) et explicatives (X)**
+
 **Variable de résultat (Y) :** Production d'œufs par jour (EggsPerDay).
 
 **Variables explicatives (X)** : Poids des poules (GallusWeight),Quantité de nourriture (AmountOfFeed),Exposition au soleil (SunLightExposure),Race de poule (GallusBreed),Poids des œufs (GallusEggWeight).
@@ -49,45 +50,15 @@ voici un apercu:
 
 **2. Analyse exploratoire préliminaire**
 
-```{r  echo = FALSE}
-summary_data <- gallusDomesticus %>%
-  group_by(GallusBreed) %>%
-  summarise(
-    mean_eggs = mean(EggsPerDay, na.rm = TRUE),
-    mean_egg_weight = mean(GallusEggWeight, na.rm = TRUE)
-  ) 
 
-ggplot(summary_data, aes(x = GallusBreed, y = mean_eggs, fill =     GallusBreed)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = round(mean_egg_weight, 1)), 
-            vjust = -0.5, size = 3) +
-  labs(
-    title = "Production moyenne d'œufs par race de poules",
-    subtitle = "Avec poids moyen des œufs affiché au-dessus des barres",
-    x = "Race de poule", 
-    y = "Nombre moyen d'œufs par jour"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position   = "none")
-```
-Ce graphique montre la production moyenne d'œufs par race, avec le poids moyen des œufs affiché au-dessus des barres.
+**Statistiques descriptives** : Calcul des moyennes, médianes, minimums et maximums pour les variables clés comme la production d'œufs par jour (EggsPerDay), le poids des poules (GallusWeight), et la quantité de nourriture (AmountOfFeed). Cette étape permet d’identifier des valeurs extrêmes ou des anomalies qui pourraient influencer l’analyse.
 
+**Visualisations** :
+**Histogrammes** pour observer la distribution des variables principales.
+**Scatterplots** pour étudier les relations potentielles entre la quantité de nourriture et la production d'œufs, ou entre le poids et le nombre d'œufs.
+**Boxplots** pour comparer la production d'œufs par race.
+L’objectif est de détecter des relations initiales entre les variables explicatives et la production d'œufs, afin de guider le choix des variables pour le modèle de régression.
 
-**3.Méthodes statistiques envisagées**
+**3. Méthodes statistiques envisagées**
 
-**Régression linéaire multiple** : Modéliser l'effet de plusieurs variables sur la production d'œufs.
-
-**ANOVA** : Comparer les races pour des différences significatives dans la production.
-
-**Corrélations** : Explorer la relation entre la quantité de nourriture, le poids et la production d'œufs.
-
-**4. Résultats attendus**
-
-**Régression linéaire multiple** : Coefficients pour évaluer l'impact de chaque variable explicative.
-
-**ANOVA** : P-value pour identifier les différences significatives entre les races.
-
-**Corrélations** : Identification des associations fortes entre les variables continues.
-
-
-
+**Régression linéaire multiple** : Cette méthode modélisera l'effet de plusieurs variables explicatives (comme le poids, la quantité de nourriture, et l'exposition au soleil) sur la production d'œufs. Elle nous permettra d'estimer l'impact relatif de chaque variable en contrôlant les autres facteurs, tout en examinant les corrélations entre les variables explicatives. L'hypothèse est que certaines caractéristiques des poules et de leur environnement influencent significativement la production d'œufs.

@@ -9,6 +9,10 @@ des lobes d'oreilles.
 Nom du fichier de données
 Les données sont dans le fichier **GallusGallusDomesticus.csv**.
 
+**Source du jeu de données** : Les données utilisées dans ce projet proviennent de 
+**Kaggle** et sont disponibles ici: 
+[Egg Producing Chickens Dataset](https://www.kaggle.com/datasets/phuzoman/egg-producing-chickens)
+
 ## GallusGallusDomesticus.csv
 
 **GallusID** : Identifiant unique pour chaque poule.

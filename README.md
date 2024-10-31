@@ -1,6 +1,8 @@
-Titre de votre projet
+Production d'œufs et conditions d'élevage
 ================
-Noms des membres de votre équipe
+
+groupe8
+MEZANKOU VALDES BRAVO MEZV14120400
 
 ## Résumé
 
