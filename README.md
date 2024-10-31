@@ -4,6 +4,13 @@ Production d'œufs et conditions d'élevage
 groupe8
 MEZANKOU VALDES BRAVO MEZV14120400
 
+MBATCHOU Emmanuel MBAE05040000
+
+NSE MBIA HEUMBIA Emmanuel NSEE21030109
+
+BAH IDRISSA BAHI01049709
+
+
 ## Résumé
 
 Rédigez votre projet et vos conclusions ici. Considérez cela comme le
