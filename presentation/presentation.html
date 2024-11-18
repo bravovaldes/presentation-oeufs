@@ -4,8 +4,8 @@
     <title>Titre de la présentation</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nom des membres de l’équipe" />
-    <meta name="date" content="2022-11-01" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <meta name="date" content="2024-11-18" />
+    <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### UQAC
 ]
 .date[
-### 2022-11-01
+### 2024-11-18
 ]
 
 ---
@@ -99,7 +99,7 @@ ou texte sur deux colonnes `\(^*\)`
 # Code
 
 
-```r
+``` r
 # une régression ennuyeuse
 model &lt;- lm(dist ~ speed, data = cars)
 tidy(model)
@@ -113,17 +113,16 @@ tidy(model)
 ## 2 speed           3.93     0.416      9.46 1.49e-12
 ```
 
-```r
+``` r
 glance(model)
 ```
 
 ```
 ## # A tibble: 1 × 12
-##   r.squared adj.r.squa…¹ sigma stati…²  p.value    df logLik   AIC   BIC devia…³
-##       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-## 1     0.651        0.644  15.4    89.6 1.49e-12     1  -207.  419.  425.  11354.
-## # … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
-## #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.651         0.644  15.4      89.6 1.49e-12     1  -207.  419.  425.
+## # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
 ```
 
 ---
