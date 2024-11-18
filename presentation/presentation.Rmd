@@ -28,7 +28,8 @@ library(xaringanthemer)
 # Pour une meilleure résolution de figure
 knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618, out.width = "80%", warning = FALSE, message = FALSE)
 style_xaringan(
-  title_slide_background_image = "img/confetti.jpg"
+  title_slide_background_image = "img/poultry_background.avif",
+  
 )
 ```
 
