@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Titre de la présentation</title>
+    <title>Production d’œufs et conditions d’élevage</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nom des membres de l’équipe" />
     <meta name="date" content="2024-11-18" />
@@ -13,10 +13,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Titre de la présentation
+# Production d’œufs et conditions d’élevage
 ]
 .subtitle[
-## Sous-titre
+## Quand les données parlent, la science avance
 ]
 .author[
 ### Nom des membres de l’équipe
@@ -41,21 +41,146 @@ class: center, middle, inverse, title-slide
 
 class: center, middle
 
-## Un énoncé de l'objectif général / de la question de recherche
+
+### Objectif 🎯 :
+Comprendre les principaux **facteurs biologiques** et **environnementaux** influençant la production d’œufs chez les poules domestiques.
+
+--
+
+### Question de recherche ❓ :
+Quels sont les **facteurs déterminants** pour la production d’œufs, en tenant compte :
+- De la **race des poules**.
+- De leur **alimentation** et **exposition au soleil**.
+- De leurs **caractéristiques physiques** (poids, couleur des œufs, etc.) ?
 
 ---
 
-class: inverse, center, middle
+class:  middle
 
-# Titre de section
+## Variables clés : Résultat et Explicatives
 
+.pull-left[
+### Variable de résultat (Y)
+- **Production d’œufs par jour** (`EggsPerDay`)
+
+
+### Variables explicatives (X)
+- **Poids des poules** (`GallusWeight`)
+- **Quantité de nourriture donnée** (`AmountOfFeed`)
+- **Exposition au soleil** (`SunLightExposure`)
+- **Race de poule** (`GallusBreed`)
+- **Poids des œufs** (`GallusEggWeight`)
+]
+
+.pull-right[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Description &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; EggsPerDay &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numérique &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Nombre d'œufs pondus par jour &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; GallusWeight &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numérique &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poids des poules (grammes) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; AmountOfFeed &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numérique &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Quantité de nourriture (grammes/jour) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SunLightExposure &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numérique &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Durée d'exposition au soleil (heures/jour) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; GallusBreed &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Catégorielle &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Race des poules &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; GallusEggWeight &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Numérique &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poids moyen des œufs (grammes) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
 ---
 
-# Hello World
+### **2. Analyse exploratoire préliminaire**
 
-- Cliquez sur le bouton "Knit" pour compiler votre présentation
+#### Analyse exploratoire : Résumé des variables clés
 
-- Assurez-vous de valider et de pousser tous les fichiers résultants vers votre référentiel GitHub
+.pull-left[
+
+
+- **Production d'œufs par jour** (`EggsPerDay`)
+  - Moyenne : 0.97 œuf/jour
+  - Min/Max : 0 à 1 œuf
+  - Écart type : 0.18
+  - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
+
+- **Poids des poules** (`GallusWeight`)
+  - Moyenne : 2217 g
+  - Min/Max : 1500 à 3000 g
+  - Écart type : 438 g
+  - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
+
+- **Quantité de nourriture donnée** (`AmountOfFeed`)
+  - Moyenne : 116 g/jour
+  - Min/Max : 100 à 130 g
+  - Écart type : 7.5
+  - Interprétation : Une distribution cohérente avec une légère variation.
+  ]
+.pull-right[
+- **Exposition au soleil** (`SunLightExposure`)
+  - Moyenne : 8.3 h/jour
+  - Min/Max : 5 à 10 h
+  - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
+
+- **Poids des œufs** (`GallusEggWeight`)
+  - Moyenne : 43.4 g
+  - Écart type : Faible variabilité
+  - Interprétation : Les poids des œufs sont relativement uniformes.
+]
+
+---
+&lt;table&gt;
+&lt;caption&gt;Statistiques descriptives pour les principales variables.&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne_Oeufs &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne_Poids &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne_Nourriture &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne_Sunlight &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne_EggWeight &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Min_Oeufs &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Max_Oeufs &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.965 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2217.85 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 116.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 43.4271 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
 
 ---
 
