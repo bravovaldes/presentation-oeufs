@@ -95,65 +95,75 @@ kable(
 ```
 ]
 ---
+```{r echo=FALSE}
+summary_table <- eggdata %>%
+  select(EggsPerDay, GallusWeight, AmountOfFeed, SunLightExposure, GallusEggWeight) %>%
+  summarise(
+    Variable = c("EggsPerDay", "GallusWeight", "AmountOfFeed", "SunLightExposure", "GallusEggWeight"),
+    Mean = c(mean(EggsPerDay, na.rm = TRUE),
+             mean(GallusWeight, na.rm = TRUE),
+             mean(AmountOfFeed, na.rm = TRUE),
+             mean(SunLightExposure, na.rm = TRUE),
+             mean(GallusEggWeight, na.rm = TRUE)),
+    Min = c(min(EggsPerDay, na.rm = TRUE),
+            min(GallusWeight, na.rm = TRUE),
+            min(AmountOfFeed, na.rm = TRUE),
+            min(SunLightExposure, na.rm = TRUE),
+            min(GallusEggWeight, na.rm = TRUE)),
+    Max = c(max(EggsPerDay, na.rm = TRUE),
+            max(GallusWeight, na.rm = TRUE),
+            max(AmountOfFeed, na.rm = TRUE),
+            max(SunLightExposure, na.rm = TRUE),
+            max(GallusEggWeight, na.rm = TRUE)),
+    `Std Dev` = c(sd(EggsPerDay, na.rm = TRUE),
+                  sd(GallusWeight, na.rm = TRUE),
+                  sd(AmountOfFeed, na.rm = TRUE),
+                  sd(SunLightExposure, na.rm = TRUE),
+                  sd(GallusEggWeight, na.rm = TRUE))
+  )
 
+
+
+```
+---
+```{r echo=FALSE}
+kable(summary_table, format = "html", caption = "Statistiques descriptives des variables principales")
+```
 ### **2. Analyse exploratoire préliminaire**
 
-#### Analyse exploratoire : Résumé des variables clés
+### Analyse exploratoire : Résumé des variables clés
 
 .pull-left[
-
-
 - **Production d'œufs par jour** (`EggsPerDay`)
-  - Moyenne : 0.97 œuf/jour
-  - Min/Max : 0 à 1 œuf
-  - Écart type : 0.18
+  - Moyenne : `r summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Mean)` + " œuf/jour"
+  - Min/Max : `r summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Max)` + " œuf"
+  - Écart type : `summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Std Dev)` + ""
   - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
 
 - **Poids des poules** (`GallusWeight`)
-  - Moyenne : 2217 g
-  - Min/Max : 1500 à 3000 g
-  - Écart type : 438 g
+  - Moyenne : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Mean)` + " g"
+  - Min/Max : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Max)` + " g"
+  - Écart type : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Std Dev)` + " g"
   - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
 
 - **Quantité de nourriture donnée** (`AmountOfFeed`)
-  - Moyenne : 116 g/jour
-  - Min/Max : 100 à 130 g
-  - Écart type : 7.5
+  - Moyenne : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Mean)` + " g/jour"
+  - Min/Max : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Max)` + " g"
+  - Écart type : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Std Dev)` + " g"
   - Interprétation : Une distribution cohérente avec une légère variation.
-  ]
+]
+
 .pull-right[
 - **Exposition au soleil** (`SunLightExposure`)
-  - Moyenne : 8.3 h/jour
-  - Min/Max : 5 à 10 h
+  - Moyenne : `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Mean)` + " h/jour"
+  - Min/Max : `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Max)` + " h"
   - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
 
 - **Poids des œufs** (`GallusEggWeight`)
-  - Moyenne : 43.4 g
-  - Écart type : Faible variabilité
+  - Moyenne : `summary_table %>% filter(Variable == "GallusEggWeight") %>% pull(Mean)` + " g"
+  - Écart type : `summary_table %>% filter(Variable == "GallusEggWeight") %>% pull(Std Dev)` + " g"
   - Interprétation : Les poids des œufs sont relativement uniformes.
 ]
-
----
-```{r stats-table, echo=FALSE}
-# Tableau des statistiques descriptives
-library(knitr)
-kable(
-  eggdata %>%
-    summarise(
-      Moyenne_Oeufs = mean(EggsPerDay, na.rm = TRUE),
-      Moyenne_Poids = mean(GallusWeight, na.rm = TRUE),
-      Moyenne_Nourriture = mean(AmountOfFeed, na.rm = TRUE),
-      Moyenne_Sunlight = mean(SunLightExposure, na.rm = TRUE),
-      Moyenne_EggWeight = mean(GallusEggWeight, na.rm = TRUE),
-      Min_Oeufs = min(EggsPerDay, na.rm = TRUE),
-      Max_Oeufs = max(EggsPerDay, na.rm = TRUE)
-    ),
-  format = "html",
-  caption = "Statistiques descriptives pour les principales variables."
-)
-```
-
-
 ---
 
 class: inverse, middle, center

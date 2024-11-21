@@ -4,7 +4,7 @@
     <title>Production d’œufs et conditions d’élevage</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nom des membres de l’équipe" />
-    <meta name="date" content="2024-11-18" />
+    <meta name="date" content="2024-11-21" />
     <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### UQAC
 ]
 .date[
-### 2024-11-18
+### 2024-11-21
 ]
 
 ---
@@ -117,71 +117,91 @@ class:  middle
 ]
 ---
 
-### **2. Analyse exploratoire préliminaire**
-
-#### Analyse exploratoire : Résumé des variables clés
-
-.pull-left[
-
-
-- **Production d'œufs par jour** (`EggsPerDay`)
-  - Moyenne : 0.97 œuf/jour
-  - Min/Max : 0 à 1 œuf
-  - Écart type : 0.18
-  - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
-
-- **Poids des poules** (`GallusWeight`)
-  - Moyenne : 2217 g
-  - Min/Max : 1500 à 3000 g
-  - Écart type : 438 g
-  - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
-
-- **Quantité de nourriture donnée** (`AmountOfFeed`)
-  - Moyenne : 116 g/jour
-  - Min/Max : 100 à 130 g
-  - Écart type : 7.5
-  - Interprétation : Une distribution cohérente avec une légère variation.
-  ]
-.pull-right[
-- **Exposition au soleil** (`SunLightExposure`)
-  - Moyenne : 8.3 h/jour
-  - Min/Max : 5 à 10 h
-  - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
-
-- **Poids des œufs** (`GallusEggWeight`)
-  - Moyenne : 43.4 g
-  - Écart type : Faible variabilité
-  - Interprétation : Les poids des œufs sont relativement uniformes.
-]
-
 ---
 &lt;table&gt;
-&lt;caption&gt;Statistiques descriptives pour les principales variables.&lt;/caption&gt;
+&lt;caption&gt;Statistiques descriptives des variables principales&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Moyenne_Oeufs &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Moyenne_Poids &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Moyenne_Nourriture &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Moyenne_Sunlight &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Moyenne_EggWeight &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Min_Oeufs &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Max_Oeufs &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Mean &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Min &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Max &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std Dev &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 0.965 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2217.85 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 116.25 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; EggsPerDay &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9650 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1838717 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; GallusWeight &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2217.8500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1500.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3000.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 438.5444090 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; AmountOfFeed &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 116.2500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 129.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.5149168 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SunLightExposure &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.3000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.2694927 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; GallusEggWeight &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 43.4271 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30.08 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58.93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.5108389 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+### **2. Analyse exploratoire préliminaire**
 
+### Analyse exploratoire : Résumé des variables clés
 
+.pull-left[
+- **Production d'œufs par jour** (`EggsPerDay`)
+  - Moyenne : 0.965 + " œuf/jour"
+  - Min/Max : 0 + " à " + `summary_table %&gt;% filter(Variable == "EggsPerDay") %&gt;% pull(Max)` + " œuf"
+  - Écart type : `summary_table %&gt;% filter(Variable == "EggsPerDay") %&gt;% pull(Std Dev)` + ""
+  - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
+
+- **Poids des poules** (`GallusWeight`)
+  - Moyenne : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Mean)` + " g"
+  - Min/Max : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Max)` + " g"
+  - Écart type : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Std Dev)` + " g"
+  - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
+
+- **Quantité de nourriture donnée** (`AmountOfFeed`)
+  - Moyenne : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Mean)` + " g/jour"
+  - Min/Max : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Max)` + " g"
+  - Écart type : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Std Dev)` + " g"
+  - Interprétation : Une distribution cohérente avec une légère variation.
+]
+
+.pull-right[
+- **Exposition au soleil** (`SunLightExposure`)
+  - Moyenne : `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Mean)` + " h/jour"
+  - Min/Max : `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Max)` + " h"
+  - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
+
+- **Poids des œufs** (`GallusEggWeight`)
+  - Moyenne : `summary_table %&gt;% filter(Variable == "GallusEggWeight") %&gt;% pull(Mean)` + " g"
+  - Écart type : `summary_table %&gt;% filter(Variable == "GallusEggWeight") %&gt;% pull(Std Dev)` + " g"
+  - Interprétation : Les poids des œufs sont relativement uniformes.
+]
 ---
 
 class: inverse, middle, center
@@ -267,7 +287,7 @@ glance(model)
 - ici
 ]
 .pull-right[
-&lt;img src="presentation_files/figure-html/unnamed-chunk-1-1.png" width="100%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="100%" /&gt;
 ]
 
 ---
