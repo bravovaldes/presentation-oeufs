@@ -42,12 +42,11 @@ class: center, middle, inverse, title-slide
 class: center, middle
 
 
-### Objectif 🎯 :
+###&lt;span class='desc'&gt; Objectif 🎯 :&lt;/span&gt;
 Comprendre les principaux **facteurs biologiques** et **environnementaux** influençant la production d’œufs chez les poules domestiques.
 
---
 
-### Question de recherche ❓ :
+###&lt;span class="desc"&gt; Question de recherche ❓&lt;/span&gt;
 Quels sont les **facteurs déterminants** pour la production d’œufs, en tenant compte :
 - De la **race des poules**.
 - De leur **alimentation** et **exposition au soleil**.
@@ -55,16 +54,16 @@ Quels sont les **facteurs déterminants** pour la production d’œufs, en tenan
 
 ---
 
-class:  middle
+class: --accent, middle 
 
-## Variables clés : Résultat et Explicatives
+## &lt;span class="desc"&gt;Variables clés : Résultat et Explicatives &lt;/span&gt;
 
 .pull-left[
-### Variable de résultat (Y)
+### &lt;span class="desc"&gt;Variable de résultat (Y)&lt;/span&gt;
 - **Production d’œufs par jour** (`EggsPerDay`)
 
 
-### Variables explicatives (X)
+### &lt;span class="desc"&gt;Variables explicatives (X)&lt;/span&gt;
 - **Poids des poules** (`GallusWeight`)
 - **Quantité de nourriture donnée** (`AmountOfFeed`)
 - **Exposition au soleil** (`SunLightExposure`)
@@ -115,51 +114,56 @@ class:  middle
 &lt;/tbody&gt;
 &lt;/table&gt;
 ]
----
+
 
 ---
-&lt;table&gt;
+class: inverse, middle, center
+
+# **Analyse exploratoire préliminaire**
+---
+
+&lt;table class='wide-table'&gt;
 &lt;caption&gt;Statistiques descriptives des variables principales&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Mean &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Min &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Max &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Std Dev &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Minimum &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Maximum &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Écart Type &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; EggsPerDay &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Production d'œufs &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.9650 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 0.1838717 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; GallusWeight &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poids des poules &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 2217.8500 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1500.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3000.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 438.5444090 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; AmountOfFeed &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Quantité de nourriture &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 116.2500 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 100.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 129.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 7.5149168 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; SunLightExposure &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Exposition au soleil &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 8.3000 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 5.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 11.00 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.2694927 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; GallusEggWeight &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poids des œufs &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 43.4271 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 30.08 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 58.93 &lt;/td&gt;
@@ -167,40 +171,27 @@ class:  middle
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-### **2. Analyse exploratoire préliminaire**
-
-### Analyse exploratoire : Résumé des variables clés
-
 .pull-left[
-- **Production d'œufs par jour** (`EggsPerDay`)
-  - Moyenne : 0.965 + " œuf/jour"
-  - Min/Max : 0 + " à " + `summary_table %&gt;% filter(Variable == "EggsPerDay") %&gt;% pull(Max)` + " œuf"
-  - Écart type : `summary_table %&gt;% filter(Variable == "EggsPerDay") %&gt;% pull(Std Dev)` + ""
-  - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
+🥚 **&lt;span class="desc"&gt;Production d'œufs par jour&lt;/span&gt;** : 0.96 œuf/jour.
 
-- **Poids des poules** (`GallusWeight`)
-  - Moyenne : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Mean)` + " g"
-  - Min/Max : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Max)` + " g"
-  - Écart type : `summary_table %&gt;% filter(Variable == "GallusWeight") %&gt;% pull(Std Dev)` + " g"
-  - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
+*Les poules pondent presque un œuf par jour, avec des variations normales (0 ou 1 œuf).*
 
-- **Quantité de nourriture donnée** (`AmountOfFeed`)
-  - Moyenne : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Mean)` + " g/jour"
-  - Min/Max : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Max)` + " g"
-  - Écart type : `summary_table %&gt;% filter(Variable == "AmountOfFeed") %&gt;% pull(Std Dev)` + " g"
-  - Interprétation : Une distribution cohérente avec une légère variation.
+⚖️ **&lt;span class="desc"&gt;Poids des poules&lt;/span&gt;** : 2218 g.
+
+*Les poids varient de 1500 g à 3000 g, reflétant les différences entre races.*
+
+🥗 **&lt;span class="desc"&gt;Quantité de nourriture donnée&lt;/span&gt;** : 116.25 g/jour.
+
+*Distribution uniforme (100 à 129 g).*
 ]
-
 .pull-right[
-- **Exposition au soleil** (`SunLightExposure`)
-  - Moyenne : `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Mean)` + " h/jour"
-  - Min/Max : `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Min)` + " à " + `summary_table %&gt;% filter(Variable == "SunLightExposure") %&gt;% pull(Max)` + " h"
-  - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
+☀️ **&lt;span class="desc"&gt;Exposition au soleil&lt;/span&gt;** : 8.30 h/jour.
 
-- **Poids des œufs** (`GallusEggWeight`)
-  - Moyenne : `summary_table %&gt;% filter(Variable == "GallusEggWeight") %&gt;% pull(Mean)` + " g"
-  - Écart type : `summary_table %&gt;% filter(Variable == "GallusEggWeight") %&gt;% pull(Std Dev)` + " g"
-  - Interprétation : Les poids des œufs sont relativement uniformes.
+*Exposition équilibrée, variant de 5 à 11 heures.*
+
+🥚 **&lt;span class="desc"&gt;Poids des œufs&lt;/span&gt;** : 43.43 g.
+
+*Les œufs pèsent entre 30.08 g et 58.93 g.*
 ]
 ---
 

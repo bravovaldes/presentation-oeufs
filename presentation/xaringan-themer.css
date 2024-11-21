@@ -56,6 +56,10 @@
   --title-slide-text-color: #d6d6d6;
   --header-background-color: #000;
   --header-background-text-color: #FFF;
+  --primary: #bad4ed;
+  --secondary: #ffcccb;
+  --accent: #7CFC00;
+  --desc: #FF6347;
 }
 
 html {
@@ -270,4 +274,45 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   }
 }
 
+.primary {
+  color: var(--primary);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.secondary {
+  color: var(--secondary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.accent {
+  color: var(--accent);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.desc {
+  color: var(--desc);
+}
+.bg-desc {
+  background-color: var(--desc);
+}
 
+
+
+/* Extra CSS */
+.wide-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.wide-table th, .wide-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+h3 {
+  color: #FF6347;
+  font-weight: bold;
+}

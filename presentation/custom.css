@@ -1,0 +1,12 @@
+.wide-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.wide-table th,
+.wide-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}

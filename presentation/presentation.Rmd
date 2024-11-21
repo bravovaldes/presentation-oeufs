@@ -28,10 +28,34 @@ library(xaringanthemer)
 # Pour une meilleure résolution de figure
 knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618, out.width = "80%", warning = FALSE, message = FALSE)
 style_xaringan(
+
   title_slide_background_image = "img/poultr.avif",
-  
-  
+  colors =  c(
+    primary = "#bad4ed",   
+    secondary = "#ffcccb", 
+    accent = "#7CFC00" ,
+    desc = "#FF6347"
+  )
 )
+style_extra_css(
+  css = list(
+    ".wide-table" = list(
+      "width" = "100%",
+      "table-layout" = "fixed",
+      "border-collapse" = "collapse"
+    ),
+    ".wide-table th, .wide-table td" = list(
+      "padding" = "10px",
+      "text-align" = "center",
+      "border" = "1px solid #ddd"
+    ),
+    "h3" = list(
+      "color" = "#FF6347",       # Couleur par défaut pour les titres `###`
+      "font-weight" = "bold"  # Facultatif : gras
+    )
+  )
+)
+
 ```
 
 ```{r load-data, include=FALSE}
@@ -43,12 +67,11 @@ eggdata <- read.csv("../data/GallusGallusDomesticus.csv")
 class: center, middle
 
 
-### Objectif 🎯 :
+###<span class='desc'> Objectif 🎯 :</span>
 Comprendre les principaux **facteurs biologiques** et **environnementaux** influençant la production d’œufs chez les poules domestiques.
 
---
 
-### Question de recherche ❓ :
+###<span class="desc"> Question de recherche ❓</span>
 Quels sont les **facteurs déterminants** pour la production d’œufs, en tenant compte :
 - De la **race des poules**.
 - De leur **alimentation** et **exposition au soleil**.
@@ -56,16 +79,16 @@ Quels sont les **facteurs déterminants** pour la production d’œufs, en tenan
 
 ---
 
-class:  middle
+class: --accent, middle 
 
-## Variables clés : Résultat et Explicatives
+## <span class="desc">Variables clés : Résultat et Explicatives </span>
 
 .pull-left[
-### Variable de résultat (Y)
+### <span class="desc">Variable de résultat (Y)</span>
 - **Production d’œufs par jour** (`EggsPerDay`)
 
 
-### Variables explicatives (X)
+### <span class="desc">Variables explicatives (X)</span>
 - **Poids des poules** (`GallusWeight`)
 - **Quantité de nourriture donnée** (`AmountOfFeed`)
 - **Exposition au soleil** (`SunLightExposure`)
@@ -94,75 +117,70 @@ kable(
 )
 ```
 ]
----
+
 ```{r echo=FALSE}
 summary_table <- eggdata %>%
   select(EggsPerDay, GallusWeight, AmountOfFeed, SunLightExposure, GallusEggWeight) %>%
   summarise(
-    Variable = c("EggsPerDay", "GallusWeight", "AmountOfFeed", "SunLightExposure", "GallusEggWeight"),
-    Mean = c(mean(EggsPerDay, na.rm = TRUE),
-             mean(GallusWeight, na.rm = TRUE),
-             mean(AmountOfFeed, na.rm = TRUE),
-             mean(SunLightExposure, na.rm = TRUE),
-             mean(GallusEggWeight, na.rm = TRUE)),
-    Min = c(min(EggsPerDay, na.rm = TRUE),
-            min(GallusWeight, na.rm = TRUE),
-            min(AmountOfFeed, na.rm = TRUE),
-            min(SunLightExposure, na.rm = TRUE),
-            min(GallusEggWeight, na.rm = TRUE)),
-    Max = c(max(EggsPerDay, na.rm = TRUE),
-            max(GallusWeight, na.rm = TRUE),
-            max(AmountOfFeed, na.rm = TRUE),
-            max(SunLightExposure, na.rm = TRUE),
-            max(GallusEggWeight, na.rm = TRUE)),
-    `Std Dev` = c(sd(EggsPerDay, na.rm = TRUE),
-                  sd(GallusWeight, na.rm = TRUE),
-                  sd(AmountOfFeed, na.rm = TRUE),
-                  sd(SunLightExposure, na.rm = TRUE),
-                  sd(GallusEggWeight, na.rm = TRUE))
+    Variable = c("Production d'œufs", 
+                 "Poids des poules", 
+                 "Quantité de nourriture", 
+                 "Exposition au soleil", 
+                 "Poids des œufs"),
+    Moyenne = c(mean(EggsPerDay, na.rm = TRUE),
+                mean(GallusWeight, na.rm = TRUE),
+                mean(AmountOfFeed, na.rm = TRUE),
+                mean(SunLightExposure, na.rm = TRUE),
+                mean(GallusEggWeight, na.rm = TRUE)),
+    Minimum = c(min(EggsPerDay, na.rm = TRUE),
+                min(GallusWeight, na.rm = TRUE),
+                min(AmountOfFeed, na.rm = TRUE),
+                min(SunLightExposure, na.rm = TRUE),
+                min(GallusEggWeight, na.rm = TRUE)),
+    Maximum = c(max(EggsPerDay, na.rm = TRUE),
+                max(GallusWeight, na.rm = TRUE),
+                max(AmountOfFeed, na.rm = TRUE),
+                max(SunLightExposure, na.rm = TRUE),
+                max(GallusEggWeight, na.rm = TRUE)),
+    `Écart Type` = c(sd(EggsPerDay, na.rm = TRUE),
+                     sd(GallusWeight, na.rm = TRUE),
+                     sd(AmountOfFeed, na.rm = TRUE),
+                     sd(SunLightExposure, na.rm = TRUE),
+                     sd(GallusEggWeight, na.rm = TRUE))
   )
-
-
 
 ```
 ---
+class: inverse, middle, center
+
+# **Analyse exploratoire préliminaire**
+---
+
 ```{r echo=FALSE}
-kable(summary_table, format = "html", caption = "Statistiques descriptives des variables principales")
+kable(summary_table, format = "html", caption = "Statistiques descriptives des variables principales",table.attr = "class='wide-table'")
+
 ```
-### **2. Analyse exploratoire préliminaire**
-
-### Analyse exploratoire : Résumé des variables clés
-
 .pull-left[
-- **Production d'œufs par jour** (`EggsPerDay`)
-  - Moyenne : `r summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Mean)` + " œuf/jour"
-  - Min/Max : `r summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Max)` + " œuf"
-  - Écart type : `summary_table %>% filter(Variable == "EggsPerDay") %>% pull(Std Dev)` + ""
-  - Interprétation : Les poules pondent presque un œuf par jour en moyenne, avec une faible variabilité.
+🥚 **<span class="desc">Production d'œufs par jour</span>** : 0.96 œuf/jour.
 
-- **Poids des poules** (`GallusWeight`)
-  - Moyenne : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Mean)` + " g"
-  - Min/Max : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Max)` + " g"
-  - Écart type : `summary_table %>% filter(Variable == "GallusWeight") %>% pull(Std Dev)` + " g"
-  - Interprétation : Une certaine variabilité entre les poules, potentiellement liée aux races.
+*Les poules pondent presque un œuf par jour, avec des variations normales (0 ou 1 œuf).*
 
-- **Quantité de nourriture donnée** (`AmountOfFeed`)
-  - Moyenne : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Mean)` + " g/jour"
-  - Min/Max : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Max)` + " g"
-  - Écart type : `summary_table %>% filter(Variable == "AmountOfFeed") %>% pull(Std Dev)` + " g"
-  - Interprétation : Une distribution cohérente avec une légère variation.
+⚖️ **<span class="desc">Poids des poules</span>** : 2218 g.
+
+*Les poids varient de 1500 g à 3000 g, reflétant les différences entre races.*
+
+🥗 **<span class="desc">Quantité de nourriture donnée</span>** : 116.25 g/jour.
+
+*Distribution uniforme (100 à 129 g).*
 ]
-
 .pull-right[
-- **Exposition au soleil** (`SunLightExposure`)
-  - Moyenne : `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Mean)` + " h/jour"
-  - Min/Max : `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Min)` + " à " + `summary_table %>% filter(Variable == "SunLightExposure") %>% pull(Max)` + " h"
-  - Interprétation : Les poules reçoivent une exposition au soleil relativement uniforme.
+☀️ **<span class="desc">Exposition au soleil</span>** : 8.30 h/jour.
 
-- **Poids des œufs** (`GallusEggWeight`)
-  - Moyenne : `summary_table %>% filter(Variable == "GallusEggWeight") %>% pull(Mean)` + " g"
-  - Écart type : `summary_table %>% filter(Variable == "GallusEggWeight") %>% pull(Std Dev)` + " g"
-  - Interprétation : Les poids des œufs sont relativement uniformes.
+*Exposition équilibrée, variant de 5 à 11 heures.*
+
+🥚 **<span class="desc">Poids des œufs</span>** : 43.43 g.
+
+*Les œufs pèsent entre 30.08 g et 58.93 g.*
 ]
 ---
 
