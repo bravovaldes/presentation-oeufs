@@ -1,12 +1,28 @@
-.wide-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
+.split-screen {
+  display: flex;
+  flex-direction: row; /* Aligne les éléments côte à côte */
+  height: 100%; /* Prend toute la hauteur de la diapositive */
 }
 
-.wide-table th,
-.wide-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
+.split-screen .left {
+  width: 50%; /* Prend 50% de la largeur */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+}
+
+.split-screen .right {
+  width: 50%; /* Prend 50% de la largeur */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+}
+
+.split-screen .left {
+  display: flex;
+  justify-content: center; /* Centre horizontalement le contenu du graphique */
+  align-items: center; /* Centre verticalement le contenu du graphique */
+}
+
+.split-screen .right {
+  display: flex;
+  justify-content: flex-start; /* Aligne le texte à gauche */
+  align-items: center; /* Centre verticalement le texte */
+  text-align: left; /* Texte aligné à gauche */
 }

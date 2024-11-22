@@ -184,41 +184,105 @@ kable(summary_table, format = "html", caption = "Statistiques descriptives des v
 ]
 ---
 
-class: inverse, middle, center
+class: middle,  center
 
-# Utiliser xaringan
+```{r echo=FALSE}
+eggdata <- eggdata %>%
+  rename(
+    `Production d'œufs par jour` = EggsPerDay,
+    `Poids des poules (g)` = GallusWeight,
+    `Quantité de nourriture (g)` = AmountOfFeed,
+    `Exposition au soleil (h)` = SunLightExposure,
+    `Poids des œufs (g)` = GallusEggWeight,
+    `Race de poule` = GallusBreed
+  )
+
+```
+
+```{r echo=FALSE ,fig.width=6, fig.height=10}
+eggdata_grouped <- eggdata %>%
+  group_by(`GallusID`, `Race de poule`) %>%
+  summarise(
+    `Production moyenne d'œufs par jour` = mean(`Production d'œufs par jour`, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+# Histogrammes séparés pour les deux races avec des couleurs différentes
+ggplot(eggdata_grouped, aes(x = `Production moyenne d'œufs par jour`, fill = `Race de poule`)) +
+  geom_histogram(binwidth = 0.1, color = "black", alpha = 0.8) +
+  facet_wrap(~ `Race de poule`, scales = "free_y",ncol=1) +  # Placer les graphiques verticalement
+  scale_fill_manual(values = c("skyblue", "orange")) +  # Couleurs spécifiques pour chaque race
+  labs(
+    title = "Distribution moyenne de la production d'œufs par race",
+    x = "Production moyenne d'œufs par jour",
+    y = "Fréquence",
+    fill = "Race de poule"
+  ) +
+  theme_minimal()
+
+```
+---
+
+### Interpretation 🐔:
+- **Ameraucana** :
+  - Très régulières : Pondent en moyenne **1 œuf par jour** sans variation notable.
+  - Peu nombreuses dans l'échantillon.
+
+- **Marans** :
+  - Beaucoup plus nombreuses, avec une **variabilité importante** dans la production d'œufs, allant de presque **0 à 1 œuf par jour**.
+
+- **Conclusion** :
+  - Les **Ameraucana** sont des pondeuses régulières, tandis que les **Marans**, bien que plus nombreuses, montrent une diversité de production liée à des facteurs potentiellement externes ou biologiques.
 
 ---
 
-# xaringan
+```{r echo=FALSE}
+eggdata_grouped <- eggdata %>%
+  group_by(`GallusID`, `Race de poule`) %>%
+  summarise(
+    `Quantité de nourriture moyenne (g)` = mean(`Quantité de nourriture (g)`, na.rm = TRUE),
+    `Production moyenne d'œufs par jour` = mean(`Production d'œufs par jour`, na.rm = TRUE)
+  ) %>%
+  ungroup()
 
-- La présentation est créée à l'aide du package `xaringan`
+# Scatterplot avec les deux races différenciées par couleur
+ggplot(eggdata_grouped, aes(x = `Quantité de nourriture moyenne (g)`, y = `Production moyenne d'œufs par jour`, color = `Race de poule`)) +
+  geom_point(alpha = 0.7, size = 3) +
+  labs(
+    title = "Relation entre la quantité de nourriture et la production moyenne d'œufs par race",
+    x = "Quantité de nourriture moyenne (g)",
+    y = "Production moyenne d'œufs par jour",
+    color = "Race de poule"
+  ) +
+  scale_color_manual(values = c("skyblue", "orange")) +
+  theme_minimal()
 
-- Utilisez `---` pour séparer les diapositives et `--` pour les versions incrémentielles
-
---
-
-- Comme ça
-
+```
 ---
+```{r echo=FALSE}
+# Calcul de la production moyenne et de l'exposition moyenne par poule
+eggdata_grouped <- eggdata %>%
+  group_by(`GallusID`,`Race de poule`) %>%
+  summarise(
+    `Exposition moyenne au soleil (h)` = mean(`Exposition au soleil (h)`, na.rm = TRUE),
+    `Production moyenne d'œufs par jour` = mean(`Production d'œufs par jour`, na.rm = TRUE)
+  )
 
-# Dispositions
+# Création des graphiques par race
+ggplot(eggdata_grouped, aes(x = as.factor(`Exposition moyenne au soleil (h)`), 
+                            y = `Production moyenne d'œufs par jour`, 
+                            fill = `Race de poule`)) +
+  geom_boxplot() +
+  facet_wrap(~ `Race de poule`, ncol = 1) +  # Facette pour séparer les races verticalement
+  labs(
+    title = "Impact de l'exposition moyenne au soleil sur la production moyenne d'œufs",
+    x = "Heures moyennes d'exposition au soleil",
+    y = "Production moyenne d'œufs par jour"
+  ) +
+  scale_fill_manual(values = c("skyblue", "orange")) +  # Couleurs pour différencier les races
+  theme_minimal() 
 
-Vous pouvez utiliser du texte brut
-
-- ou des listes
-
-.pull-left[
-ou texte sur deux colonnes $^*$
-]
-.pull-right[
-- Comme
-- ca
-]
-
-.footnote[
-[*] Et ajouter des notes de bas de page
-]
+```
 ---
 
 # Code
