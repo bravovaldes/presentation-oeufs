@@ -4,7 +4,7 @@
     <title>Production d’œufs et conditions d’élevage</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nom des membres de l’équipe" />
-    <meta name="date" content="2024-11-22" />
+    <meta name="date" content="2024-12-12" />
     <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### UQAC
 ]
 .date[
-### 2024-11-22
+### 2024-12-12
 ]
 
 ---
@@ -217,57 +217,53 @@ class: middle,  center
 
 &lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" /&gt;
 ---
+### **Interprétation 🐔**
+
+- **Ameraucana** :
+  - Consomment entre **100 g et 115 g** de nourriture par jour.
+  - Maintiennent un **taux de ponte élevé**, exactement de **1 œuf par jour**.
+  - Produisent des œufs **plus gros**, ce qui les positionne comme une race efficace.
+
+- **Marans** :
+  - Consomment entre **105 g et 130 g** de nourriture par jour.
+  - Affichent une **variabilité importante** dans la production d'œufs, quel que soit le niveau de nourriture.
+  - Les œufs sont plus petits comparés à ceux des Ameraucana.
+
+### **Conclusion** :
+Les **Ameraucana** se distinguent par une consommation modérée et des performances élevées (grande taille des œufs et taux de ponte stable). Elles semblent être une **option optimale** pour la production. Les **Marans**, bien que plus gourmandes, montrent des résultats moins homogènes.
+
+---
 &lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
 ---
 
-# Code
 
 
-``` r
-# une régression ennuyeuse
-model &lt;- lm(dist ~ speed, data = cars)
-tidy(model)
-```
-
-```
-## # A tibble: 2 × 5
-##   term        estimate std.error statistic  p.value
-##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
-## 2 speed           3.93     0.416      9.46 1.49e-12
-```
-
-``` r
-glance(model)
-```
-
-```
-## # A tibble: 1 × 12
-##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
-##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     0.651         0.644  15.4      89.6 1.49e-12     1  -207.  419.  425.
-## # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
-```
+&lt;img src="presentation_files/figure-html/boring-regression -1.png" width="80%" /&gt;
 
 ---
+### Interpretation 🐔
 
-# Plots
+##### Ameraucana 🥚
+- **Production moyenne constante** : La production d'œufs est stable à **1 œuf par jour**, quel que soit le niveau d'exposition au soleil.
+- **Indépendance environnementale** : Cette régularité élevée suggère que la race **Ameraucana** n'est pas significativement influencée par les heures d'exposition au soleil.
+
+##### Marans 🌞
+- **Sensibilité à l'exposition** : Une tendance montre que les poules **Marans** ayant plus d'heures d'exposition au soleil augmentent légèrement leur production d'œufs.
+- **Variabilité observée** : Contrairement aux Ameraucana, la production des Marans varie davantage et semble être influencée par des facteurs environnementaux.
 
 
+### Conclusion 🎯
 
-&lt;img src="presentation_files/figure-html/plot-iris-1.png" width="80%" /&gt;
+- **Ameraucana** : Cette race maintient une **production optimale** sans dépendre des facteurs environnementaux comme l'exposition au soleil.
+- **Marans** : Cette race semble **bénéficier d'une exposition accrue au soleil**, bien que d'autres facteurs externes ou biologiques puissent également jouer un rôle dans cette variabilité.
 
 ---
+class: inverse, middle, center
 
-## Plot et texte
 
-.pull-left[
-- Du texte
-- ici
-]
-.pull-right[
-&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="100%" /&gt;
-]
+
+# **Méthodes statistiques envisagées**
+
 
 ---
 
