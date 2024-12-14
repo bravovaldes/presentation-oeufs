@@ -4,7 +4,7 @@
     <title>Production d’œufs et conditions d’élevage</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nom des membres de l’équipe" />
-    <meta name="date" content="2024-12-12" />
+    <meta name="date" content="2024-12-13" />
     <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### UQAC
 ]
 .date[
-### 2024-12-12
+### 2024-12-13
 ]
 
 ---
@@ -266,114 +266,118 @@ class: inverse, middle, center
 
 
 ---
-
-# Les tables
-
-Si vous souhaitez générer un tableau, assurez-vous qu'il est au format HTML (au lieu de Markdown ou d'autres formats), par exemple,
-
-&lt;table&gt;
+&lt;table class='wide-table'&gt;
+&lt;caption&gt;Résultats de la régression linéaire pour les Marans&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimation &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Erreur standard &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Valeur t &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0886576 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1139213 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.556224 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; `Poids des poules (g)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000491 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000145 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.399140 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0007060 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; `Quantité de nourriture (g)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0027697 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0008545 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -3.241451 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0012334 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; `Exposition au soleil (h)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0101778 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0060462 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.683333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0926610 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
----
+- **Poids des poules (g)** :
+  - Effet **positif et significatif** (**p &lt; 0.001**).
+  - Une augmentation de **100 g** est associée à **+0.00491 œuf par jour**.
 
-# Images
+- **Quantité de nourriture (g)** :
+  - Effet **négatif et significatif** (**p &lt; 0.01**).
+  - Une augmentation de **1 g** entraîne **-0.00277 œuf par jour**.
 
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80" alt="Image credit: Photo by Jörg Angeli on Unsplash." width="60%" /&gt;
-&lt;p class="caption"&gt;Image credit: Photo by Jörg Angeli on Unsplash.&lt;/p&gt;
-&lt;/div&gt;
-
-Ou vous pouvez également inclure une image pleine page. Voir la diapositive suivante.
-
----
-
-background-image: url(https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80)
+- **Exposition au soleil (h)** :
+  - Effet **positif mais non significatif** (**p = 0.092**).
+  - Une heure supplémentaire augmente la production de **0.01 œuf par jour**, mais sans certitude statistique.
 
 ---
+&lt;table class='wide-table'&gt;
+&lt;caption&gt;Résultats de la régression linéaire pour les Ameraucana&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimation &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Erreur standard &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Valeur t &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.656598e+14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; `Poids des poules (g)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.192709e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2357779 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; `Quantité de nourriture (g)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -8.669220e-01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3880397 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; `Exposition au soleil (h)` &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.705279e-01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8649361 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-# Expressions mathématiques
+- **Poids des poules (g)** :
+  - Effet **positif mais non significatif** (**p = 0.236**).
+  - Une augmentation de 100 g du poids des poules est associée à une augmentation très faible de 0.00011 œuf par jour.
 
-Vous pouvez écrire des expressions mathématiques LaTeX à l'intérieur d'une paire de signes dollar, par ex. &amp;#36;\alpha+\beta$ rend `\(\alpha+\beta\)`. Vous pouvez utiliser le style d'affichage avec des signes dollar doubles :
+- **Quantité de nourriture (g)** :
+  - Effet **négatif mais non significatif** (**p = 0.388**).
+  - Une augmentation de 1 g de nourriture est associée à une diminution de 0.00003 œuf par jour.
 
-```
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-`$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$`
-
-Limites:
-
-1. Le code source d'une expression mathématique LaTeX doit être sur une seule ligne, à moins qu'il ne soit à l'intérieur d'une paire de signes dollar doubles, auquel cas le `$$` de départ doit apparaître au tout début d'une ligne, suivi immédiatement d'un caractère autre qu'un espace et la terminaison `$$` doit être à la fin d'une ligne, précédée d'un caractère autre qu'un espace ;
-
-1. Il ne doit pas y avoir d'espaces après le `$` d'ouverture ou avant le `$` de fermeture.
-
-1. Les mathématiques ne fonctionnent pas sur la diapositive de titre (voir [#61](https://github.com/yihui/xaringan/issues/61) pour une solution de contournement).
+- **Exposition au soleil (h)** :
+  - Effet **positif mais non significatif** (**p = 0.865**).
+  - Chaque heure supplémentaire d'exposition au soleil est associée à une augmentation de 0.00001 œuf par jour.
 
 ---
-
-# Envie d'aventure ?
-
-- Vous voulez en savoir plus sur `xaringan` ? Voir https://slides.yihui.name/xaringan/#1.
-
-- Vous êtes invités à utiliser le style par défaut des diapositives. En fait, c'est ce que j'attends de la majorité d'entre vous. Vous vous différencierez par le contenu de votre présentation.
-
-- Mais certains d'entre vous voudront peut-être jouer avec le style des diapositives. La librairie
-`xaringanthemer` fournit des solutions pour cela : https://pkg.garrickadenbuie.com/xaringanthemer.
-
-- Et si vous voulez plus de cloches et de sifflets, il y a aussi `xaringanExtra` : https://pkg.garrickadenbuie.com/xaringanExtra.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -362,58 +362,107 @@ class: inverse, middle, center
 
 
 ---
+```{r echo=FALSE}
+# Filtrer les données pour garantir des valeurs valides
+eggdata_cleaned <- eggdata %>%
+  filter(!is.na(`Production d'œufs par jour`) & 
+           `Production d'œufs par jour` >= 0 & 
+           `Production d'œufs par jour` <= 1)
 
-# Les tables
+# Filtrer les données par race
+eggdata_marans <- eggdata_cleaned %>% filter(`Race de poule` == "Marans")
 
-Si vous souhaitez générer un tableau, assurez-vous qu'il est au format HTML (au lieu de Markdown ou d'autres formats), par exemple,
+eggdata_ameraucana <- eggdata_cleaned %>% filter(`Race de poule` == "Ameraucana")
 
-```{r iris-table, echo = FALSE}
-kable(head(iris), format = "html")
+# Régression linéaire pour les Marans
+model_marans <- lm(
+  formula = `Production d'œufs par jour` ~ `Poids des poules (g)` + 
+    `Quantité de nourriture (g)` + `Exposition au soleil (h)`,
+  data = eggdata_marans
+)
+
+model_summary <- summary(model_marans)
+
+summary_table <- as.data.frame(model_summary$coefficients)
+summary_table <- summary_table %>%
+  rownames_to_column(var = "Variable") %>%
+  rename(
+    `Estimation` = Estimate,
+    `Erreur standard` = `Std. Error`,
+    `Valeur t` = `t value`,
+    `p-value` = `Pr(>|t|)`
+  )
+
+# Afficher le tableau avec kable
+library(knitr)
+kable(
+  summary_table, 
+  format = "html", 
+  caption = "Résultats de la régression linéaire pour les Marans",
+  table.attr = "class='wide-table'"
+)
+
 ```
 
+- **Poids des poules (g)** :
+  - Effet **positif et significatif** (**p < 0.001**).
+  - Une augmentation de **100 g** est associée à **+0.00491 œuf par jour**.
+
+- **Quantité de nourriture (g)** :
+  - Effet **négatif et significatif** (**p < 0.01**).
+  - Une augmentation de **1 g** entraîne **-0.00277 œuf par jour**.
+
+- **Exposition au soleil (h)** :
+  - Effet **positif mais non significatif** (**p = 0.092**).
+  - Une heure supplémentaire augmente la production de **0.01 œuf par jour**, mais sans certitude statistique.
+
 ---
+```{r echo=FALSE}
 
-# Images
 
-```{r castle, echo = FALSE, out.width = "60%", fig.align = "center", fig.cap = "Image credit: Photo by Jörg Angeli on Unsplash."}
-include_graphics("https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80")
+
+model_ameraucana <- lm(
+  formula = `Production d'œufs par jour` ~ `Poids des poules (g)` + 
+    `Quantité de nourriture (g)` + `Exposition au soleil (h)`,
+  data = eggdata_ameraucana
+)
+
+# Obtenir le résumé du modèle pour les Ameraucana
+model_summary <- summary(model_ameraucana)
+
+# Transformer les coefficients en un tableau avec des noms clairs
+summary_table <- as.data.frame(model_summary$coefficients)
+summary_table <- summary_table %>%
+  rownames_to_column(var = "Variable") %>%
+  rename(
+    `Estimation` = Estimate,
+    `Erreur standard` = `Std. Error`,
+    `Valeur t` = `t value`,
+    `p-value` = `Pr(>|t|)`
+  )
+
+options(scipen = 0)
+
+kable(
+  summary_table, 
+  format = "html", 
+  caption = "Résultats de la régression linéaire pour les Ameraucana",
+  table.attr = "class='wide-table'"
+)
+
+
 ```
 
-Ou vous pouvez également inclure une image pleine page. Voir la diapositive suivante.
+- **Poids des poules (g)** :
+  - Effet **positif mais non significatif** (**p = 0.236**).
+  - Une augmentation de 100 g du poids des poules est associée à une augmentation très faible de 0.00011 œuf par jour.
+
+- **Quantité de nourriture (g)** :
+  - Effet **négatif mais non significatif** (**p = 0.388**).
+  - Une augmentation de 1 g de nourriture est associée à une diminution de 0.00003 œuf par jour.
+
+- **Exposition au soleil (h)** :
+  - Effet **positif mais non significatif** (**p = 0.865**).
+  - Chaque heure supplémentaire d'exposition au soleil est associée à une augmentation de 0.00001 œuf par jour.
 
 ---
-
-background-image: url(https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)
-
----
-
-# Expressions mathématiques
-
-Vous pouvez écrire des expressions mathématiques LaTeX à l'intérieur d'une paire de signes dollar, par ex. &#36;\alpha+\beta$ rend $\alpha+\beta$. Vous pouvez utiliser le style d'affichage avec des signes dollar doubles :
-
-```
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-
-Limites:
-
-1. Le code source d'une expression mathématique LaTeX doit être sur une seule ligne, à moins qu'il ne soit à l'intérieur d'une paire de signes dollar doubles, auquel cas le `$$` de départ doit apparaître au tout début d'une ligne, suivi immédiatement d'un caractère autre qu'un espace et la terminaison `$$` doit être à la fin d'une ligne, précédée d'un caractère autre qu'un espace ;
-
-1. Il ne doit pas y avoir d'espaces après le `$` d'ouverture ou avant le `$` de fermeture.
-
-1. Les mathématiques ne fonctionnent pas sur la diapositive de titre (voir [#61](https://github.com/yihui/xaringan/issues/61) pour une solution de contournement).
-
----
-
-# Envie d'aventure ?
-
-- Vous voulez en savoir plus sur `xaringan` ? Voir https://slides.yihui.name/xaringan/#1.
-
-- Vous êtes invités à utiliser le style par défaut des diapositives. En fait, c'est ce que j'attends de la majorité d'entre vous. Vous vous différencierez par le contenu de votre présentation.
-
-- Mais certains d'entre vous voudront peut-être jouer avec le style des diapositives. La librairie
-`xaringanthemer` fournit des solutions pour cela : https://pkg.garrickadenbuie.com/xaringanthemer.
-
-- Et si vous voulez plus de cloches et de sifflets, il y a aussi `xaringanExtra` : https://pkg.garrickadenbuie.com/xaringanExtra.
