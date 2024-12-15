@@ -34,7 +34,7 @@ Les résultats montrent que les **Ameraucana** sont des pondeuses plus efficaces
 ---
 
 ## Données  
-Les données utilisées proviennent de [Kaggle](https://www.kaggle.com/datasets/phuzoman/egg-producing-chickens), récupérées le **[10-12-2024]**.
+Les données utilisées proviennent de [Kaggle](https://www.kaggle.com/datasets/phuzoman/egg-producing-chickens), récupérées le **[10-10-2024]**.
 
 ---
 
