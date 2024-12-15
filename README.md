@@ -30,8 +30,8 @@ destiné à un bref résumé de votre projet.
 {r load-data, echo = FALSE} \# load data here, if you like
 
 # Présentation
-
-Notre présentation est disponible [ici]((https://uqac.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=7dd80733-d2dc-4814-aa7b-b247004e5f5f)).
+Notre présentation en diapo est disponible [ici](presentation/presentation.html)
+Notre présentation video panopto est disponible [ici](https://uqac.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=7dd80733-d2dc-4814-aa7b-b247004e5f5f).
 
 ## Données
 
