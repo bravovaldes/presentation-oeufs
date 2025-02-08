@@ -1,15 +1,7 @@
 Production d'œufs et conditions d'élevage
 ================
 
-groupe8
 
-**MEZANKOU VALDES BRAVO** - MEZV14120400  
-**MBATCHOU Emmanuel** - MBAE05040000  
-**NSE MBIA HEUMBIA Emmanuel** - NSEE21030109  
-**BAH IDRISSA** - BAHI01049709 
-
-Notre présentation vidéo détaillée est disponible sur le lien suivant :  
-[Présentation Vidéo Panopto](https://uqac.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=7dd80733-d2dc-4814-aa7b-b247004e5f5f)
 
 ## Résumé  
 
@@ -39,10 +31,8 @@ Les données utilisées proviennent de [Kaggle](https://www.kaggle.com/datasets/
 ---
 
 ## Présentation  
-Notre présentation vidéo détaillée est disponible sur le lien suivant :  
-[Présentation Vidéo Panopto](https://uqac.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=7dd80733-d2dc-4814-aa7b-b247004e5f5f)
 
-Notre présentation diapo est disponible [ici](presentation/presentation.html).
+Ma présentation diapo est disponible [ici](presentation/presentation.html).
 
 ---
 
