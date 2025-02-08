@@ -1,8 +1,7 @@
 ---
 title: "Production d'œufs et conditions d'élevage"
 subtitle: "Quand les données parlent, la science avance"
-author: "Mezankou valdes bravo,Emmanuel Mbatchou,NSE Mbia Heumbia Emmanuel,Bah Idrissa 
-"
+author: "Mezankou valdes bravo Activites De Recherche Informatique I"
 institute: "UQAC"
 date: "`r Sys.Date()`"
 output:
@@ -17,6 +16,7 @@ output:
 ---
 
 ```{r load-packages, include = FALSE}
+knitr::opts_chunk$set(fig.width=7, fig.height=5, dev="png", self_contained=TRUE)
 # Ajoutez tous les packages supplémentaires dont vous avez besoin à ce chunk
 library(tidyverse)
 library(tidymodels)
